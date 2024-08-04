@@ -1,38 +1,253 @@
-.App {
-  text-align: center;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  color: #F5F5DC;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#pomodoro{
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
+#mainflex{
+  display:flex;
   flex-direction: column;
   align-items: center;
+  gap: 20px;
+  padding-top: 50px;
+}
+
+h1{
+  text-align: center;
+  display:flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 50px;
 }
 
-.App-link {
-  color: #61dafb;
+button{
+  height: 50px;
+  width: 50px;
+  font-size: 14px;
+  font-weight: bold;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+#break-label{
+  display:flex;
+  margin: auto auto;
+  justify-content: space-between;
+  width: 400px;
+}
+
+#session-label{
+  display:flex;
+  margin: auto auto;
+  justify-content: space-between;
+  width: 400px;
+}
+
+#block{
+  height: 280px;
+  width: 500px;
+  margin: auto;
+  border-radius: 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#time-left{
+  margin-top: -20px;
+}
+
+#duration{
+  display:flex;
+  flex-direction:row;
+  height: 250px;
+  width: 50%;
+  margin: auto auto;
+  overflow: hidden;
+}
+
+.text{
+  font-size: 30px;
+}
+
+#session-length{
+  font-size: 35px;
+}
+
+#break-length{
+  font-size: 35px;
+}
+
+#duration button{
+  color: black;
+  font-size: 35px;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  border: none;
+  box-shadow: 0 4px 0px rgba(0, 0, 0, 0.5);
+  transition: background-color 0.2s ease;
+}
+
+#duration button:active{
+  transform: translateY(2px);
+  box-shadow: none;
+}
+
+#break-label{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 250px;
+  height: 150px;
+}
+
+#break-buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 140px;
+}
+
+#timer-label{
+  width: 300px;
+  height: 50px;
+  margin-bottom: 10px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+#session-label{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 250px;
+  height: 150px;
+}
+
+#session-buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 140px;
+}
+
+#time-left{
+  font-size: 120px;
+  margin-top: -45px;
+  height: 115px;
+  position: relative;
+  overflow: hidden;
+}
+
+#start_stop{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 350px;
+}
+
+#start_stop button{
+  width: 90px;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 20px;
+  border: none;
+  color: black;
+  box-shadow: 0 5px 0px rgba(0, 0, 0, 0.5);
+  transition: background-color 0.2s ease;
+}
+
+#start_stop button:active{
+  transform: translateY(2px);
+  box-shadow: none;
+}
+
+button:hover{
+  cursor: pointer;
+}
+
+.not-break-label-color{
+  background-color: #215949;
+}
+
+.break-label-color{
+  background-color: #005A7A;
+}
+
+.break-block-color{
+  background-color: #4B9CD3;
+}
+
+.not-break-block-color{
+  background-color: #3DA485;
+}
+
+.break-pomodoro-color{
+  background-color: #0078A3;
+}
+
+.not-break-pomodoro-color{
+  background-color: #32866D;
+}
+
+.break-button-color{
+  background-color: #B2FFFF;
+}
+
+.break-button-color:active{
+  background-color: #15358E;
+}
+
+.not-break-button-color{
+  background-color: #98FB98;
+}
+
+.button-hover-color-break:hover{
+  background-color: #7CB9E8;
+}
+
+.button-hover-color-not-break:hover{
+  background-color: #50C878;
+}
+
+@media only screen and (max-width: 600px) {
+  #block, #duration, #timer-label{
+    transform: scale(0.75);
   }
-  to {
-    transform: rotate(360deg);
+  #duration{
+    flex-direction: column;
+    height: 400px;
+    margin-top: -100px;
+    width: 300px;
+  }
+  #block{
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: -50px
+  }
+  button{
+    transform: scale(0.8)
+  }
+  #start_stop{
+    width: 70%;
   }
 }
